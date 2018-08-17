@@ -21,7 +21,7 @@ requirements:
 
 test:
   imports:
-    - csmapi
+    - sensorutils
     
 about:
   home: https://github.com/USGS-Astrogeology/SensorUtils-Swig

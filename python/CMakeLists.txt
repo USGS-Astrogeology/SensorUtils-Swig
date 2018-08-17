@@ -9,13 +9,16 @@ set_source_files_properties(../Sensor.i
 
 # Find dependencies
 find_path(SENSORUTILS_INCLUDE_DIR NAMES Sensor.h 
-                          PATH_SUFFIXES sensorcore 
+                          PATH_SUFFIXES sensorcore
                           PATHS ${PYTHON_INCLUDE_DIR}/../sensorutils)
 find_library(SENSORUTILS_LIBRARY NAMES sensorutils)
 message("-- Found SensorUtils Include: ${SENSORUTILS_INCLUDE_DIR}")
 message("-- Found Sensor Utils Lib: ${SENSORUTILS_LIBRARY}")
 
-include_directories(${SENSORUTILS_INCLUDE_DIR})
+include_directories(${SENSORUTILS_INCLUDE_DIR} 
+                    ${SENSORUTILS_INCLUDE_DIR}/../shapemodel
+                    ${SENSORUTILS_INCLUDE_DIR}/../sensormodel
+                    ${SENSORUTILS_INCLUDE_DIR}/../sensormath)
 
 # Add and link
 swig_add_library(sensorutils
